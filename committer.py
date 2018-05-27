@@ -5,4 +5,4 @@ def commit_er(size_array):
         x =(size_array[i]['commit'])
         y=(x['committer'])
         z = (y['name'])
-        test.insert(2, z)
+        test.append(z)
