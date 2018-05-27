@@ -20,5 +20,5 @@ def rest_request(method, url, json=None):
 response = rest_request("GET", "https://api.github.com/repos/rexius41/test_ness/commits")
 committer.commit_er(response)
 print (test)
-print (Counter.Counter(test))
+Counter.counter(test)
 
