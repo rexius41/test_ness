@@ -8,3 +8,4 @@ def export_excel (lsleng):
     for i in range (len(x)):
         worksheet.write_row(i, 0, x[i])
     workbook.close()
+    print ("<<<<Export to excel successful>>>>>")
