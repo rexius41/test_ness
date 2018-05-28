@@ -2,8 +2,10 @@ import requests
 import committer
 import Counter
 import sorter
+import extr
 from committer import test
 from Counter import big_list
+from sorter import list_sorted
 def rest_request(method, url, json=None):
     _resp = requests.request(
         method,
@@ -23,3 +25,4 @@ response = rest_request("GET", "https://api.github.com/repos/rexius41/test_ness/
 committer.commit_er(response)
 Counter.counter(test)
 sorter.sort(big_list)
+extr.export_excel(list_sorted)
