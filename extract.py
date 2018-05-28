@@ -20,9 +20,14 @@ def rest_request(method, url, json=None):
         return _resp
     else:
         raise ValueError(_resp.json()["message"])
-
-response = rest_request("GET", "https://api.github.com/repos/rexius41/test_ness/commits")
-committer.commit_er(response)
-Counter.counter(test)
-sorter.sort(big_list)
+reposlist = []
+responses = rest_request("GET", "https://api.github.com/users/rexius41/repos")
+for i in range (len(responses)):
+    reposlist.append(responses[i]['name'])
+print (reposlist)
+for i in range (len(reposlist)):
+    response = rest_request("GET", "https://api.github.com/repos/rexius41/{}/commits".format(reposlist[i]))
+    committer.commit_er(response)
+    Counter.counter(test)
+    sorter.sort(big_list)
 extr.export_excel(list_sorted)
