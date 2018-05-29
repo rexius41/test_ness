@@ -6,3 +6,4 @@ def commit_er(size_array):
         y=(x['committer'])
         z = (y['name'])
         test.append(z)
+        print (len(test))
