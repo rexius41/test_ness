@@ -10,6 +10,7 @@ from allrep import repolist
 from extr import ReportGenerator
 from req import GithubRequester
 token = input ('enter aut. token>>>')
+Fname = input ('enter name for generated Excel file>>> ')
 allrep.getallrepo(token)
 y = 1
 req = GithubRequester()
@@ -20,5 +21,5 @@ for x in range (len(repolist)):
         y=y+1
 Counter.counter(test)
 sorter.sort(big_list)
-generate = ReportGenerator("export3.xlsx")
+generate = ReportGenerator("{}.xlsx".format(Fname))
 generate.generate_excel(30, list_sorted)
