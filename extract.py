@@ -2,16 +2,17 @@ token=[]
 import committer
 import Counter
 import sorter
-import extr
-import req
 import allrep
 from committer import test
 from Counter import big_list
 from sorter import list_sorted
 from allrep import repolist
+from extr import ReportGenerator
+from req import GithubRequester
 token = input ('enter aut. token>>>')
 allrep.getallrepo(token)
 y = 1
+req = GithubRequester()
 for x in range (len(repolist)):
     while req.rest_request("GET", "https://api.github.com/repos/performgroup/{}/commits?page={}&per_page=100".format(repolist[x],y), token) != []:
         response= req.rest_request("GET","https://api.github.com/repos/performgroup/{}/commits?page={}&per_page=100".format(repolist[x],y), token)
@@ -19,4 +20,5 @@ for x in range (len(repolist)):
         y=y+1
 Counter.counter(test)
 sorter.sort(big_list)
-extr.export_excel(list_sorted)
+generate = ReportGenerator("export3.xlsx")
+generate.generate_excel(30, list_sorted)
